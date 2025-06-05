@@ -1,28 +1,98 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <title>CryptoPapa's App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #121212;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      color: #fff;
       margin: 0;
+      padding: 20px;
+      text-align: center;
     }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
     h1 {
       color: #ffdd57;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .button {
+      background-color: #ffdd57;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #ffe87a;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    input {
+      background: #2a2a2a;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 6px;
+      color: #fff;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>👋 Добро пожаловать в CryptoPapa's App</h1>
-  <p>Здесь будет ваш дашборд, покупки, партнёрка и т.д.</p>
+  <div class="container">
+    <h1>CryptoPapa’s App</h1>
+    <p class="info">🔗 Ваша реферальная ссылка:</p>
+    <input type="text" id="refLink" readonly value="https://t.me/CryptoPapasAppBot?start=123456">
+    
+    <p class="info">👥 Приглашено: <strong id="refCount">0</strong></p>
+    <p class="info">🏆 Ваш уровень: <strong id="refLevel">1</strong></p>
+
+    <button class="button" onclick="buyAccess()">💳 Купить доступ</button>
+    <button class="button" onclick="checkBalance()">💰 Проверить баланс</button>
+
+    <p class="small">Вы получаете до 20% с покупок по вашей ссылке</p>
+  </div>
+
+  <script>
+    // Здесь подключается Telegram WebApp API
+    // Пример: const tg = window.Telegram.WebApp;
+    // Подстановка user_id и динамических данных происходит через API
+    function buyAccess() {
+      alert("Функция покупки подключается через Telegram Bot API");
+    }
+
+    function checkBalance() {
+      alert("Функция баланса подключается через API");
+    }
+  </script>
 </body>
 </html>

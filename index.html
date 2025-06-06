@@ -118,12 +118,22 @@
   </div>
 
   <script>
-    function switchTab(tabName) {
-      document.querySelectorAll('.tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.getElementById('tab-' + tabName).classList.add('active');
-    }
+  function switchTab(tabName) {
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    document.getElementById('tab-' + tabName).classList.add('active');
+
+    document.querySelectorAll('.bottom-nav button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelector(`[onclick*="${tabName}"]`).classList.add('active');
+  }
+
+  // По умолчанию выделяем "Главная"
+  window.onload = () => {
+    switchTab('home');
+  };
   </script>
 </body>
 </html>

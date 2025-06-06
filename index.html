@@ -89,6 +89,61 @@
       font-size: 14px;
     }
   }
+  .top-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1e1e1e;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.top-nav button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.top-nav button.active {
+  background-color: #222;
+  color: #ffdd57;
+}
+
+.card {
+  background-color: #1c1c1c;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px rgba(255, 221, 87, 0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ffdd57;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #ffdd57;
+  color: #000;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.card .btn:hover {
+  background-color: #ffd000;
+}
   </style>
 </head>
 
@@ -100,21 +155,26 @@
 
     <main>
       <div id="tab-home" class="tab active">
-        <p>🏠 Добро пожаловать! Здесь главная информация.</p>
-      </div>
-      <div id="tab-partners" class="tab">
-        <p>🤝 Здесь появится ваша партнёрская ссылка и статистика.</p>
-      </div>
-      <div id="tab-buy" class="tab">
-        <p>💳 Здесь можно будет купить доступ в VIP-чат.</p>
-      </div>
-    </main>
+  <h2>👋 Добро пожаловать!</h2>
+  <p>Добро пожаловать в CryptoPapa’s App — ваш центр управления!</p>
+
+  <div class="card">
+    <h3>📢 Официальный канал</h3>
+    <p>Следите за новостями и сигналами:</p>
+    <a href="https://t.me/cryptopapasito" target="_blank" class="btn">Перейти в канал</a>
   </div>
 
-  <div class="bottom-nav">
-    <button onclick="switchTab('home')">🏠 Главная</button>
-    <button onclick="switchTab('partners')">🤝 Партнёрка</button>
-    <button onclick="switchTab('buy')">💳 Покупка</button>
+  <div class="card">
+    <h3>👨‍💼 Связаться с модератором</h3>
+    <p>Есть вопросы? Напишите модератору:</p>
+    <a href="https://t.me/CryptoZevs01" target="_blank" class="btn">Написать @CryptoZevs01</a>
+  </div>
+  </div>
+
+  <div class="top-nav">
+  <button onclick="switchTab('home')" class="active">🏠 Главная</button>
+  <button onclick="switchTab('ref')" >🤝 Партнёрка</button>
+  <button onclick="switchTab('buy')" >💳 Купить VIP</button>
   </div>
 
   <script>

@@ -4,166 +4,119 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CryptoPapa's App</title>
- <style>
-  * {
-    box-sizing: border-box;
-  }
 
-  body {
-    margin: 0;
-    background-color: #121212;
-    color: #fff;
-    font-family: 'Segoe UI', sans-serif;
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  .app-container {
-    max-width: 100%;
-    padding: 16px;
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 80px;
-  }
+    body {
+      margin: 0;
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-  header h1 {
-    color: #ffdd57;
-    font-size: 22px;
-    text-align: center;
-    margin-bottom: 10px;
-  }
+    .app-container {
+      max-width: 100%;
+      padding: 16px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+    }
 
-  main {
-    flex-grow: 1;
-  }
-
-  .tab {
-    display: none;
-  }
-
-  .tab.active {
-    display: block;
-    animation: fadeIn 0.3s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background: #1e1e1e;
-    padding: 12px 0;
-    border-top: 1px solid #333;
-    z-index: 10;
-  }
-
-  .bottom-nav button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    flex-grow: 1;
-  }
-
-  input#ref-link {
-    width: 100%;
-    padding: 12px;
-    background: #1e1e1e;
-    border: 1px solid #444;
-    color: #fff;
-    border-radius: 6px;
-    margin-bottom: 12px;
-  }
-
-  button.buy-btn {
-    background-color: #ffdd57;
-    color: #000;
-    padding: 14px 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  /* 📱 Мобильная адаптация */
-  @media (max-width: 480px) {
     header h1 {
-      font-size: 20px;
+      color: #ffdd57;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    main {
+      flex-grow: 1;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: #1e1e1e;
+      padding: 12px 0;
+      border-top: 1px solid #333;
+      z-index: 10;
     }
 
     .bottom-nav button {
-      font-size: 14px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      flex-grow: 1;
     }
 
-    .buy-btn {
-      font-size: 15px;
-    }
+    /* 📱 Мобильная адаптация */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 20px;
+      }
 
-    input#ref-link {
-      font-size: 14px;
+      .bottom-nav button {
+        font-size: 14px;
+      }
     }
-  }
   </style>
 </head>
+
 <body>
   <div class="app-container">
     <header>
-      <h1>CryptoPapa’s App</h1>
+      <h1>CryptoPapa's App</h1>
     </header>
 
-    <main id="content">
-      <section id="home-tab" class="tab active">
-        <h2>👋 Добро пожаловать</h2>
-        <p>Это ваша главная страница приложения CryptoPapa’s.</p>
-      </section>
-
-      <section id="referral-tab" class="tab">
-        <h2>🤝 Партнёрка</h2>
-        <p>Ваша реферальная ссылка:</p>
-        <input type="text" id="ref-link" readonly value="https://t.me/CryptoPapasAppBot?start=ваш_id" />
-        <p>Уровень: 1<br> Приглашено: 0<br> До 2 уровня: 50</p>
-      </section>
-
-      <section id="vip-tab" class="tab">
-        <h2>💎 VIP-доступ</h2>
-        <p>Откройте доступ в VIP-чат и получайте ещё больше.</p>
-        <button class="buy-btn" onclick="Telegram.WebApp.sendData('buy')">Купить за 750 Stars</button>
-      </section>
+    <main>
+      <div id="tab-home" class="tab active">
+        <p>🏠 Добро пожаловать! Здесь главная информация.</p>
+      </div>
+      <div id="tab-partners" class="tab">
+        <p>🤝 Здесь появится ваша партнёрская ссылка и статистика.</p>
+      </div>
+      <div id="tab-buy" class="tab">
+        <p>💳 Здесь можно будет купить доступ в VIP-чат.</p>
+      </div>
     </main>
+  </div>
 
-    <nav class="bottom-nav">
-      <button onclick="switchTab('home-tab')">🏠 Главная</button>
-      <button onclick="switchTab('referral-tab')">🤝 Партнёрка</button>
-      <button onclick="switchTab('vip-tab')">💎 VIP</button>
-    </nav>
+  <div class="bottom-nav">
+    <button onclick="switchTab('home')">🏠 Главная</button>
+    <button onclick="switchTab('partners')">🤝 Партнёрка</button>
+    <button onclick="switchTab('buy')">💳 Покупка</button>
   </div>
 
   <script>
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById('tab-' + tabName).classList.add('active');
     }
-
-    // Telegram WebApp API
-    window.onload = function () {
-      if (window.Telegram && Telegram.WebApp) {
-        Telegram.WebApp.expand();
-
-        const userId = Telegram.WebApp.initDataUnsafe?.user?.id;
-        if (userId) {
-          document.getElementById("ref-link").value = `https://t.me/CryptoPapasAppBot?start=${userId}`;
-        }
-      }
-    };
   </script>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>

@@ -242,18 +242,39 @@
   text-align: center;
  }
 
- /* 🔥 Это сброс цвета у неактивных кнопок */
+ .tab-grid .tab-btn {
+  flex: 1 1 30%;
+  background-color: #1e1e1e;       /* Серый фон */
+  border: 2px solid #333;
+  color: #ccc;
+  padding: 16px;
+  font-size: 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+ }
+
+ /* НЕактивная кнопка */
  .tab-grid .tab-btn:not(.active) {
   background-color: #1e1e1e;
-  color: #ccc;
+  color: #aaa;
   border-color: #333;
  }
 
- /* 🔶 А это — стиль активной */
+ /* 🔶 Активная кнопка */
  .tab-grid .tab-btn.active {
-  background-color: #ffdd57;
+  background-color: #ff9900;        /* ТЁМНО-ОРАНЖЕВЫЙ */
   color: #000;
-  border-color: #ffdd57;
+  border-color: #ff9900;
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);  /* Подсветка */
+ }
+
+ /* Наведение (hover) */
+ .tab-grid .tab-btn:hover {
+  background-color: #ffaa1a;
+  color: #000;
+  border-color: #ffaa1a;
  }
   </style>
 </head>

@@ -242,9 +242,16 @@
   text-align: center;
  }
 
- .tab-grid .tab-btn {
-  flex: 1 1 30%;
-  background-color: #1e1e1e;       /* Серый фон */
+ .tab-grid {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+ }
+
+ .tab-btn {
+  background-color: #1e1e1e;
   border: 2px solid #333;
   color: #ccc;
   padding: 16px;
@@ -255,26 +262,16 @@
   text-align: center;
  }
 
- /* НЕактивная кнопка */
- .tab-grid .tab-btn:not(.active) {
-  background-color: #1e1e1e;
-  color: #aaa;
-  border-color: #333;
- }
-
- /* 🔶 Активная кнопка */
- .tab-grid .tab-btn.active {
-  background-color: #ff9900;        /* ТЁМНО-ОРАНЖЕВЫЙ */
+ .tab-btn.active {
+  background-color: #ff9900; /* тёмно-оранжевый */
   color: #000;
   border-color: #ff9900;
-  box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);  /* Подсветка */
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
  }
 
- /* Наведение (hover) */
- .tab-grid .tab-btn:hover {
-  background-color: #ffaa1a;
+ .tab-btn:hover {
+  background-color: #ffaa33;
   color: #000;
-  border-color: #ffaa1a;
  }
   </style>
 </head>
@@ -285,9 +282,9 @@
       <h1>CryptoPapa's App</h1>
     </header>
 <div class="tab-grid">
-  <button onclick="switchTab('home', this)" class="tab-btn">🏠 Главная</button>
-  <button onclick="switchTab('ref', this)" class="tab-btn">🤝 Партнёрка</button>
-  <button onclick="switchTab('buy', this)" class="tab-btn">💳 Купить VIP</button>
+  <button class="tab-btn" onclick="setActiveTab(this)">🏠 Главная</button>
+  <button class="tab-btn" onclick="setActiveTab(this)">🤝 Партнёрка</button>
+  <button class="tab-btn" onclick="setActiveTab(this)">💳 Купить VIP</button>
 </div>
 
     <main>
@@ -335,5 +332,17 @@ function switchTab(tabName, el) {
   switchTab('home', defaultBtn);
 };
   </script>
+  <script>
+ function setActiveTab(clickedBtn) {
+  // Убираем активный класс со всех кнопок
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // Добавляем активный класс на ту, по которой кликнули
+  clickedBtn.classList.add('active');
+ }
+ </script>
+
 </body>
 </html>

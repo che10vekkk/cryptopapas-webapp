@@ -199,7 +199,37 @@
     width: 100%;
   }
  }
+ .tab-grid {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+ }
 
+ .tab-grid .tab-btn {
+  flex: 1 1 30%;
+  background-color: #1e1e1e;
+  border: 2px solid #333;
+  color: #ccc;
+  padding: 16px;
+  font-size: 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+ }
+
+ .tab-grid .tab-btn.active {
+  background-color: #ffdd57;
+  color: #000;
+  border-color: #ffdd57;
+ }
+
+.tab-grid .tab-btn:hover {
+  background-color: #ffd000;
+  color: #000;
+ }
   </style>
 </head>
 
@@ -208,10 +238,10 @@
     <header>
       <h1>CryptoPapa's App</h1>
     </header>
-<div class="top-nav">
-  <button onclick="switchTab('home')" class="tab-btn active">🏠 Главная</button>
-  <button onclick="switchTab('ref')" class="tab-btn">🤝 Партнёрка</button>
-  <button onclick="switchTab('buy')" class="tab-btn">💳 Купить VIP</button>
+<div class="tab-grid">
+  <button onclick="switchTab('home', this)" class="tab-btn active">🏠 Главная</button>
+  <button onclick="switchTab('ref', this)" class="tab-btn">🤝 Партнёрка</button>
+  <button onclick="switchTab('buy', this)" class="tab-btn">💳 Купить VIP</button>
 </div>
 
     <main>
@@ -236,17 +266,18 @@
   </div>
   
   <script>
-  function switchTab(tabName) {
-    document.querySelectorAll('.tab').forEach(tab => {
-      tab.classList.remove('active');
-    });
-    document.getElementById('tab-' + tabName).classList.add('active');
+ function switchTab(tabName, el) {
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  document.getElementById('tab-' + tabName).classList.add('active');
 
-    document.querySelectorAll('.bottom-nav button').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    document.querySelector(`[onclick*="${tabName}"]`).classList.add('active');
-  }
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  el.classList.add('active');
+}
+
 
   // По умолчанию выделяем "Главная"
   window.onload = () => {

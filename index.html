@@ -281,7 +281,8 @@
 
   // По умолчанию выделяем "Главная"
   window.onload = () => {
-    switchTab('home');
+  const defaultBtn = document.querySelector('[onclick*="home"]');
+  switchTab('home', defaultBtn);
   };
   </script>
 </body>

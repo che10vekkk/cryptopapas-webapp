@@ -284,6 +284,37 @@
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
  }
+ .accordion-header {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #ffdd57;
+  position: relative;
+ }
+
+ .accordion-header::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s;
+ }
+
+ .accordion.open .accordion-header::after {
+  transform: rotate(180deg);
+ }
+
+ .accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0;
+ }
+
+ .accordion.open .accordion-body {
+  max-height: 500px;
+  padding-top: 10px;
+ }
   </style>
 </head>
 
@@ -376,7 +407,7 @@
   switchTab('home', defaultBtn);
 };
   </script>
- <script>
+<script>
  function setActiveTab(clickedBtn) {
   // 1. Убираем активные кнопки
   document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -398,7 +429,25 @@
     targetTab.classList.add('active');
   }
  }
- </script>
+
+ // Аккордеоны
+ document.addEventListener('DOMContentLoaded', () => {
+   document.querySelectorAll('.accordion-header').forEach(header => {
+     header.addEventListener('click', () => {
+       const parent = header.closest('.accordion');
+       parent.classList.toggle('open');
+     });
+   });
+
+   // Устанавливаем вкладку по умолчанию
+   const defaultBtn = document.querySelector('[data-tab="tab-home"]');
+   if (defaultBtn) {
+     defaultBtn.classList.add('active');
+     document.getElementById('tab-home').classList.add('active');
+   }
+ });
+</script>
+
 
 </body>
 </html>

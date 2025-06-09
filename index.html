@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CryptoPapa's App</title>
+  <title>CryptoPapa's BOT</title>
 
   <style>
   * {
@@ -349,16 +349,60 @@
  .vip-header strong {
   color: #ffdd57;
  }
+ .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+ }
 
+ .app-header h1 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 221, 87, 0.5), 0 0 10px rgba(255, 221, 87, 0.3);
+  margin: 0;
+  letter-spacing: 1px;
+ }
+
+ .app-header .highlight {
+  background: linear-gradient(to right, #ffdd57, #ffaa33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ }
+
+ .channel-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffdd57;
+  box-shadow: 0 0 5px rgba(255, 221, 87, 0.6);
+ }
+ @media (max-width: 480px) {
+  .app-header h1 {
+    font-size: 20px;
+  }
+
+  .channel-avatar {
+    width: 36px;
+    height: 36px;
+  }
+ }
 
   </style>
 </head>
 
 <body>
   <div class="app-container">
-    <header>
-      <h1>CryptoPapa's App</h1>
-    </header>
+ <header class="app-header">
+  <img src="https://fv5-2.files.fm/thumb_show.php?i=c6u2b2gugm&view&v=1&PHPSESSID=ae43ff1efa7044b42b5fe3616ce202f3a4eb5302" alt="CryptoPapa" class="channel-avatar" />
+  <h1>CryptoPapa's <span class="highlight">BOT</span></h1>
+ </header>
+
  <div class="tab-grid">
   <button class="tab-btn active" onclick="setActiveTab(this)" data-tab="tab-home">🏠 Главная</button>
   <button class="tab-btn" onclick="setActiveTab(this)" data-tab="tab-partner">🤝 Партнёрка</button>

@@ -315,6 +315,42 @@
   max-height: 500px;
   padding-top: 10px;
  }
+ .vip-header {
+  text-align: center;
+  margin-bottom: 25px;
+  background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 0 15px rgba(255, 221, 87, 0.15);
+  border: 1px solid #333;
+ }
+
+ .vip-header h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: #fff; /* основной цвет */
+ }
+
+ .vip-header .vip-gradient {
+  background: linear-gradient(to right, #ffdd57, #ffaa33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+ }
+
+ .vip-header p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.6;
+ }
+
+ .vip-header strong {
+  color: #ffdd57;
+ }
+
+
   </style>
 </head>
 
@@ -348,8 +384,11 @@
 </div>
   </div>
     <div id="tab-vip" class="tab">     
-  <h2>💳 Купить VIP</h2>
-  <p>Открой доступ к эксклюзивным сигналам, стратегиям и приватному сообществу.</p>
+ <div class="vip-header">
+  <h2><span class="icon">💳</span> Купить <span class="vip-gradient">VIP</span></h2>
+  <p>Открой доступ к <strong>эксклюзивным сигналам</strong>, <strong>стратегиям</strong> и <strong>приватному сообществу</strong>.</p>
+ </div>
+
 
   <div class="card">
     <h3>🌟 VIP-доступ</h3>

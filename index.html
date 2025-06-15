@@ -392,6 +392,39 @@
     height: 36px;
   }
  }
+ .welcome-title {
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+  color: #ffdd57;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  animation: fadeInDown 0.5s ease;
+ }
+
+ .welcome-subtitle {
+  text-align: center;
+  font-size: 17px;
+  color: #ddd;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.6s ease;
+}
+
+ /* Дополнительная анимация */
+ @keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ }
 
   </style>
 </head>
@@ -409,9 +442,13 @@
   <button class="tab-btn" onclick="setActiveTab(this)" data-tab="tab-vip">💳 Купить VIP</button>
  </div>
     <main>
-      <div id="tab-home" class="tab active">
-  <h2>👋 Добро пожаловать!</h2>
-  <p>Добро пожаловать в CryptoPapa’s App — ваш центр управления!</p>
+   <div id="tab-home" class="tab active">
+  <h2 class="welcome-title">👋 Добро пожаловать!</h2>
+  <p class="welcome-subtitle">
+    Добро пожаловать в <strong>CryptoPapa’s official BOT</strong> — ваш центр управления!
+  </p>
+ </div>
+
 
   <div class="card-row">
   <div class="card">

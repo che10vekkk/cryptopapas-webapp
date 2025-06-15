@@ -274,15 +274,22 @@
   color: #000;
  }
  .tab {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  height: auto; /* чтобы не было прыжков */
  }
+
  .tab.active {
-  display: block;
-  animation: fadeIn 0.3s ease;
- }
- @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
  }
  .accordion-header {
   font-weight: bold;
@@ -393,6 +400,7 @@
   }
  }
  .welcome-title {
+  margin-top: 0;
   font-size: 28px;
   font-weight: 800;
   text-align: center;
@@ -418,7 +426,7 @@
  @keyframes fadeInDown {
   from {
     opacity: 0;
-    margin-top: -10px;
+    margin-top: 0px;
   }
   to {
     opacity: 1;
@@ -477,16 +485,7 @@
 <div id="tab-partner" class="tab">
   <h2 class="welcome-title">🤝 Партнёрская программа</h2>
   <p class="welcome-subtitle">
-    Получите уникальную реферальную ссылку. За каждого приглашённого, который купит VIP за 750 Stars, вы получите 18% от стоимости!
-  </p>
-
-  <div class="card" id="referralCard" style="display:none; margin-top: 20px; word-break: break-word;">
-    <p style="color:#ffdd57; font-weight: bold;">Ваша реферальная ссылка:</p>
-    <p id="refLink" style="background: #2c2c2c; padding: 10px; border-radius: 8px;"></p>
-  </div>
-
-  <p id="errorMsg" style="color: #ff5555; display:none; margin-top: 20px;">
-    Не удалось определить ваш Telegram ID. Пожалуйста, авторизуйтесь через Telegram.
+    В разработке
   </p>
 </div>
 
@@ -611,6 +610,24 @@
 
   refLinkElem.textContent = referralLink;
   refLinkContainer.style.display = 'block';
+});
+function setActiveTab(clickedBtn) {
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  clickedBtn.classList.add('active');
+
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  
+  const tabId = clickedBtn.getAttribute('data-tab');
+  const targetTab = document.getElementById(tabId);
+  if (targetTab) {
+    targetTab.classList.add('active');
+  }
+}
+
+// При загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  const defaultBtn = document.querySelector('.tab-btn.active') || document.querySelector('[data-tab="tab-home"]');
+  if (defaultBtn) setActiveTab(defaultBtn);
 });
 
 </script>
